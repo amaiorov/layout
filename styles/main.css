@@ -4,51 +4,85 @@
 
 body {
   font-family: Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
-h2 {
-  letter-spacing: 10px;
+header, footer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+  background: #eef;
 }
-#gallows {
-  white-space: pre;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: 20px;
+header {
+  top: 0;
+  border-bottom: 1px solid #999;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #999;
+}
+.content {
+  margin: 100px 0;
+  padding: 20px;
+}
+/*
+  to work in IE8, not using flexbox
+*/
+[class^="col-"] {
+  width: calc(25% - 20px);
+  float: left;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
   position: relative;
-  // border: 1px solid red;
+  overflow: hidden;
+  background: #f5f5ff;
+  box-sizing: border-box;
 }
-#guy {
-  // width: 100%;
-  // height: 100%;
-  // border: 1px solid red;
-  position: absolute;
-  left: 22px;
-  top: 57px;
-}
-.hidden {
-  display: none !important;
-}
-input {
-  border: none;
-  border-bottom: 1px solid #aaf;
-  padding: 0 5px;
-  font-size: 16px;
-}
-input:focus {
-  outline: none;
+.col-1 {
 
 }
-button {
-  border: 1px solid #aaf;
-  border-radius: 5px;
-  padding: 5px 10px;
-  background: none;
+.col-2 {
+
 }
-.instructions {
-  margin-top: 30px;
-}
-.instructions span {
-  background: #eef;
-  padding: 5px 10px;
+.col-2 div {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  font-weight: bold;
+}
+.col-3 {
+  display: table;
+}
+.col-3 div {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.col-4:after {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(245,245,255, 1) 0, rgba(245,245,255, 0) 100%);
+}
+.col-4 img {
+  width: 100%;
+}
+ol li:nth-child(even) {
+  background: #ddd;
+}
+ol li:nth-child(odd) {
+  background: #eee;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
 }
